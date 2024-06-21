@@ -30,66 +30,60 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Unqueue",
-    description: "E-commerce platform for selling digital products",
-    image: "/assets/unqueue.webm",
-    href: "https://unqueue.shop/",
+    title: "Cache project",
+    description: "Thread-Safe Cache Library",
+    image: "/assets/Screenshot 2024-06-21 at 10.28.42 AM.png",
+    href: "https://github.com/swapnilmittal1/cache",
   },
   {
-    title: "InfiniteVPS",
-    description: "High performance VPS hosting solution",
-    image: "/assets/infinitevps.webm",
-    href: "#",
+    title: "Resume",
+    description: "Here's a link to my resume",
+    image: "/assets/Screenshot 2024-06-21 at 10.36.21 AM.png",
+    href: "https://drive.google.com/file/d/1fs2zrCqsb-sddK7Dxua-xOJBDJr1erBZ/view",
   },
   {
-    title: "TranslateBot",
-    description: "Powerful Multilingual Translation Bot for Discord",
-    image: "/assets/translate_bot.webm",
-    href: "https://translatebot.app/",
+    title: "LiDAR Locomotive",
+    description: "Developed a robotics simulation framework with ROS",
+    image: "/assets/Screenshot 2024-06-21 at 10.31.31 AM.png",
+    href: "https://vip.gatech.edu/teams/vvo",
   },
   {
-    title: "Wrona",
-    description: "Robotics-focused technology company",
-    image: "/assets/wrona.jpeg",
-    href: "https://www.wrona.com/",
-  },
-  {
-    title: "This website",
-    description: "My personal website",
-    image: "/assets/portfolio.webm",
-    href: "https://github.com/wendoj/portfolio",
+    title: "Transformer for RUL prediction",
+    description: "Custom Transformer model using PyTorch",
+    image: "/assets/339827766-079afdcd-fb68-4258-a32e-24ca5a11c69d.png",
+    href: "https://github.com/swapnilmittal1/transformer_RUL_prediction",
   },
 ];
 
 const services = [
   {
-    service: "Frontend Development",
+    service: "Database Management",
     description:
-      "Creating stellar user interfaces and web experiences using the latest technologies.",
+      "Enhancing data retrieval and storage efficiency with optimized database solutions for seamless operations.",
     icon: Code2,
   },
   {
-    service: "UX Design",
+    service: "Cloud Integration",
     description:
       "Building intuitive, user-centric designs that drive engagement and conversion.",
     icon: Frame,
   },
   {
-    service: "SEO Optimization",
+    service: "Data Analysis",
     description:
-      "Enhancing your website's visibility in search engines for increased organic traffic.",
+      "Utilizing advanced analytical techniques to extract actionable insights and drive data-informed decisions.",
     icon: SearchCheck,
   },
   {
-    service: "Responsive Design",
+    service: "Automation Solutions",
     description:
-      "Designing websites that look and perform equally well on all devices and screen sizes.",
+      "Implementing automated workflows and processes to increase productivity and reduce manual effort.",
     icon: MonitorSmartphone,
   },
   {
-    service: "Backend Development",
+    service: "Security Enhancement",
     description:
-      "Developing robust, scalable server-side logic for a wide range of web applications.",
+      "Strengthening system security through comprehensive vulnerability assessments and implementing robust defense mechanisms.",
     icon: Eye,
   },
 ];
@@ -263,7 +257,7 @@ export default function Home() {
             className="my-14 flex max-w-6xl flex-col justify-start space-y-10"
           >
             <h2 className="py-16  pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]">
-            A Computer Science major at Georgia Tech with a knack for turning ideas into reality. I recently made a Transformer model for predicting machinery lifespan, crafted a robotics simulation framework. I love diving into challenging projects. I am currently interning at KBR where I boosted productivity and efficiency for senior engineers with my software solutions. I co-founded Clyd AI, which recently hit a $3 million valuation and attracted over 150 customers. I’m fluent in Python, Java, C++, and numerous other technologies. Check out my portfolio!
+            A Computer Science major at Georgia Tech with a knack for turning ideas into reality. I recently made a Transformer model for predicting machinery lifespan, crafted a robotics simulation framework. I love diving into challenging projects. I am currently interning at KBR where I boosted productivity and efficiency for senior engineers with my software solutions. I co-founded Clyd AI, a stealth start-up, which hit over a 100 users for it's private beta recently. I’m fluent in Python, Java, C++, and numerous other technologies. Check out my portfolio!
             </h2>
           </div>
         </section>
@@ -290,11 +284,17 @@ export default function Home() {
               ✨ Projects
             </span>
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-6xl">
-              Streamlined digital experiences.
+              ML and Full-stack projects
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              I&apos;ve worked on a variety of projects, from small websites to
-              large-scale web applications. Here are some of my favorites:
+              I&apos;ve worked on a variety of projects, some of which are given here. You can find them all on my {" "}
+              <Link
+                href="https://github.com/swapnilmittal1"
+                target="_blank"
+                className="underline"
+              >
+                github.
+              </Link>{" "}
             </p>
 
             {/* Carousel */}
@@ -375,8 +375,7 @@ export default function Home() {
                   </span>
                 </h2>
                 <p className="mt-2 tracking-tighter text-secondary-foreground">
-                  Here are some of the services I offer. If you have any
-                  questions, feel free to reach out.
+                  I am currently looking for an internship for Summer 2025, feel free to reach out.
                 </p>
               </div>
               {services.map((service) => (
@@ -410,10 +409,9 @@ export default function Home() {
               <span className="text-gradient clash-grotesk">together.</span>
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              I&apos;m currently available for freelance work and open to
-              discussing new projects.
+            I am currently looking for an internship for Summer 2025, feel free to reach out.
             </p>
-            <Link href="mailto:swapnilmittal1@gmail.me" passHref>
+            <Link href="mailto:swapnilmittal1@gmail.com" passHref>
               <Button className="mt-6">Get in touch</Button>
             </Link>
           </div>
