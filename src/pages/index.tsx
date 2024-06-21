@@ -411,7 +411,7 @@ export default function Home() {
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
             I am currently looking for an internship for Summer 2025, feel free to reach out.
             </p>
-            <Link href="mailto:swapnilmittal1@gmail.com" passHref>
+            <Link href="https://www.linkedin.com/in/mittalswapnil/" passHref>
               <Button className="mt-6">Get in touch</Button>
             </Link>
           </div>
