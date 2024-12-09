@@ -39,7 +39,7 @@ const projects = [
     title: "Resume",
     description: "Here's a link to my resume",
     image: "/assets/Screenshot 2024-06-21 at 10.36.21 AM.png",
-    href: "https://drive.google.com/file/d/1fs2zrCqsb-sddK7Dxua-xOJBDJr1erBZ/view",
+    href: "https://drive.google.com/file/d/1WLxjWERkuwr0Q023U6DRYeMrJnneoSO1/view?usp=sharing",
   },
   {
     title: "LiDAR Locomotive",
@@ -219,7 +219,7 @@ export default function Home() {
               
               <Button
     variant="outline"
-    onClick={() => window.open("https://drive.google.com/file/d/1fs2zrCqsb-sddK7Dxua-xOJBDJr1erBZ/view?usp=sharing")}
+    onClick={() => window.open("    https://drive.google.com/file/d/1WLxjWERkuwr0Q023U6DRYeMrJnneoSO1/view?usp=sharing?usp=sharing")}
   >
     Resume 
   </Button>
