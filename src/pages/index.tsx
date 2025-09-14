@@ -520,10 +520,21 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="max-w-4xl"
             >
-              <h2 className="text-5xl font-medium tracking-tighter xl:text-7xl mb-6">
-                Let&apos;s work{" "}
-                <span className="text-gradient clash-grotesk">together.</span>
-              </h2>
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <Image
+                    src="/assets/memoji.jpg"
+                    alt="Swapnil Mittal"
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h2 className="text-5xl font-medium tracking-tighter xl:text-7xl">
+                  Let&apos;s work{" "}
+                  <span className="text-gradient clash-grotesk">together.</span>
+                </h2>
+              </div>
               
               <p className="text-xl tracking-tight text-muted-foreground mb-8 xl:text-2xl">
                 Ready to build something impactful? I&apos;m always excited to collaborate on innovative projects.

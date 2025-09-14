@@ -5,9 +5,9 @@
     "orientation": "portrait",
     "scope": "/",
     "start_url": "/",
-    "name": "WendoJ",
-    "short_name": "WendoJ",
-    "description": "Full-stack website developer and TypeScript enthusiast.",
+    "name": "Swapnil Mittal",
+    "short_name": "Swapnil",
+    "description": "ML Engineer & Backend Developer - CS + ML @ Georgia Tech",
     "icons": [
         {
             "src": "/icon-192x192.png",

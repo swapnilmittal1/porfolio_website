@@ -121,19 +121,19 @@ export default function Container(props: ContainerProps) {
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
-          content={`https://www.wendoj.codes${router.asPath}`}
+          content={`https://www.swapnilmittal.com${router.asPath}`}
         />
         <link
           rel="canonical"
-          href={`https://www.wendoj.codes${router.asPath}`}
+          href={`https://www.swapnilmittal.com${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="WendoJ" />
+        <meta property="og:site_name" content="Swapnil Mittal" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="WendoJ" />
+        <meta name="twitter:site" content="Swapnil Mittal" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
@@ -164,12 +164,12 @@ export default function Container(props: ContainerProps) {
           </button>
         </div>
         <Link href="/">
-          <div className="relative w-12 h-12 rounded-full overflow-hidden">
+          <div className="relative w-16 h-16 rounded-full overflow-hidden">
             <Image
               src="/assets/memoji.jpg"
               alt="Swapnil Mittal"
-              width={48}
-              height={48}
+              width={64}
+              height={64}
               className="w-full h-full object-cover"
             />
           </div>
@@ -229,7 +229,7 @@ export default function Container(props: ContainerProps) {
                 {/* Footer */}
                 <div className="flex min-h-fit w-full flex-col space-y-8 px-[22px] py-10">
                   <span className="text-sm text-muted-foreground">
-                    © {new Date().getFullYear()} wendo. All rights reserved.
+                    © {new Date().getFullYear()} Swapnil Mittal. All rights reserved.
                   </span>
                 </div>
               </div>
