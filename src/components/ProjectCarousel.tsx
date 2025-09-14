@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import useEmblaCarousel, { type EmblaCarouselType } from "embla-carousel-react";
+import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -39,7 +39,7 @@ export default function ProjectCarousel({ projects, className }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [progress, setProgress] = useState(0); // 0-100
 
-  const onSelect = useCallback((api: EmblaCarouselType | null) => {
+  const onSelect = useCallback((api: any) => {
     if (!api) return;
     setSelectedIndex(api.selectedScrollSnap());
   }, []);
