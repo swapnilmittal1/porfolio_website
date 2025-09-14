@@ -3,6 +3,7 @@ import { useEffect, useRef, Suspense, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import { Button } from "@/components/ui/button";
 import PDFModal from "@/components/PDFModal";
+import ContactForm from "@/components/ContactForm";
 
 import {
   ChevronRight,
@@ -541,9 +542,14 @@ export default function Home() {
                 </h2>
               </div>
               
-              <p className="text-xl tracking-tight text-muted-foreground mb-8 xl:text-2xl">
+              <p className="text-xl tracking-tight text-muted-foreground mb-12 xl:text-2xl">
                 Ready to build something impactful? I&apos;m always excited to collaborate on innovative projects.
               </p>
+              
+              {/* Contact Form */}
+              <div className="mb-12">
+                <ContactForm />
+              </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <Link href="mailto:swapnil.mittal1@gmail.com" passHref>
