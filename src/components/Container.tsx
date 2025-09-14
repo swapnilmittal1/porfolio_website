@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn, scrollTo } from "@/lib/utils";
 import { useState, useEffect } from "react";
@@ -163,7 +164,15 @@ export default function Container(props: ContainerProps) {
           </button>
         </div>
         <Link href="/">
-          <span className="text-lg font-semibold">Home</span>
+          <div className="relative w-8 h-8 rounded-full overflow-hidden">
+            <Image
+              src="/assets/memoji.jpg"
+              alt="Swapnil Mittal"
+              width={32}
+              height={32}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </Link>
 
         {/* Desktop menu */}
