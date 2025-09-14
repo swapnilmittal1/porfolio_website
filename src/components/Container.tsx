@@ -164,12 +164,12 @@ export default function Container(props: ContainerProps) {
           </button>
         </div>
         <Link href="/">
-          <div className="relative w-8 h-8 rounded-full overflow-hidden">
+          <div className="relative w-12 h-12 rounded-full overflow-hidden">
             <Image
               src="/assets/memoji.jpg"
               alt="Swapnil Mittal"
-              width={32}
-              height={32}
+              width={48}
+              height={48}
               className="w-full h-full object-cover"
             />
           </div>
