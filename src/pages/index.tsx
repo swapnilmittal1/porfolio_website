@@ -191,10 +191,15 @@ export default function Home() {
 
     async function getLocomotive() {
       const Locomotive = (await import("locomotive-scroll")).default;
-      new Locomotive({
+      const locomotive = new Locomotive({
         el: refScrollContainer.current ?? new HTMLElement(),
         smooth: true,
       });
+      
+      // Store locomotive instance globally for scrollTo function
+      if (typeof window !== 'undefined') {
+        (window as any).locomotiveScroll = locomotive;
+      }
     }
 
     function handleScroll() {

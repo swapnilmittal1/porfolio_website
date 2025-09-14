@@ -42,6 +42,7 @@ const navLinks = [
   { href: "#about", text: "About" },
   { href: "#projects", text: "Projects" },
   { href: "#services", text: "Services" },
+  { href: "#contact", text: "Contact" },
 ];
 
 function handleClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
