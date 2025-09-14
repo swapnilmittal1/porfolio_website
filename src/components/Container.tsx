@@ -139,6 +139,9 @@ export default function Container(props: ContainerProps) {
         <meta name="twitter:image" content={meta.image} />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/memoji.jpg?v=2" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/memoji.jpg?v=2" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" />
       </Head>
       <nav
         className={cn(
