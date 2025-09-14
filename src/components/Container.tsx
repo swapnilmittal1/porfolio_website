@@ -119,6 +119,9 @@ export default function Container(props: ContainerProps) {
         <meta name="robots" content="follow, index" />
         <meta name="theme-color" content="#7B82FE" />
         <meta content={meta.description} name="description" />
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
         <meta
           property="og:url"
           content={`https://www.swapnilmittal.com${router.asPath}`}
@@ -139,9 +142,10 @@ export default function Container(props: ContainerProps) {
         <meta name="twitter:image" content={meta.image} />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/memoji.jpg?v=2" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/memoji.jpg?v=2" />
-        <link rel="shortcut icon" href="/favicon.ico?v=2" />
+        <link rel="icon" type="image/png" sizes="32x32" href={`/favicon-32x32.png?v=${Date.now()}`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`/favicon-16x16.png?v=${Date.now()}`} />
+        <link rel="shortcut icon" href={`/favicon-32x32.png?v=${Date.now()}`} />
+        <link rel="icon" href={`/favicon-32x32.png?v=${Date.now()}`} />
       </Head>
       <nav
         className={cn(
