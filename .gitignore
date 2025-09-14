@@ -105,9 +105,3 @@ Thumbs.db
 
 # Vercel
 .vercel
-
-# Local env files
-.env*.local
-
-# BFG jar file
-bfg-1.14.0.jar
