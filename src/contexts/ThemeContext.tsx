@@ -29,10 +29,15 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     const savedTheme = localStorage.getItem('theme') as Theme;
     if (savedTheme) {
       setTheme(savedTheme);
+      // Apply immediately
+      document.documentElement.setAttribute('data-theme', savedTheme);
     } else {
       // Check system preference
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
+      const initialTheme = prefersDark ? 'dark' : 'light';
+      setTheme(initialTheme);
+      // Apply immediately
+      document.documentElement.setAttribute('data-theme', initialTheme);
     }
   }, []);
 
@@ -40,6 +45,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     // Apply theme to document
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    console.log('Theme applied:', theme);
   }, [theme]);
 
   const toggleTheme = () => {

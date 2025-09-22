@@ -6,11 +6,16 @@ import { Button } from '@/components/ui/button';
 const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
+  const handleToggle = () => {
+    console.log('Toggling theme from', theme, 'to', theme === 'dark' ? 'light' : 'dark');
+    toggleTheme();
+  };
+
   return (
     <Button
       variant="outline"
       size="sm"
-      onClick={toggleTheme}
+      onClick={handleToggle}
       className="relative h-10 w-10 p-0 rounded-full border-border/20 hover:bg-background/10 transition-colors"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
     >
