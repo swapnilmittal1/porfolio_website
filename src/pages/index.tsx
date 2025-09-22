@@ -420,6 +420,24 @@ export default function Home() {
                   <li>• Applied AI across robotics, legal tech, and large-scale enterprise systems</li>
                 </ul>
               </div>
+
+              {/* Divider */}
+              <div className="border-t border-border/20 my-8"></div>
+
+              {/* Fourth Section */}
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <span className="text-2xl">💡</span>
+                  <h2 className="text-3xl font-bold tracking-tighter text-foreground xl:text-[40px]">
+                    Where AI meets human needs.
+                  </h2>
+                </div>
+                <ul className="text-lg font-light leading-relaxed tracking-tight text-foreground xl:text-xl space-y-2 ml-6">
+                  <li>• Passionate about clarity, collaboration, and tools that actually serve people</li>
+                  <li>• Excited by problems at the intersection of AI, systems, and human feedback</li>
+                  <li>• Building things that are both technically elegant and practically useful</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
