@@ -38,7 +38,7 @@ const PDFModal: React.FC<PDFModalProps> = ({ isOpen, onClose, pdfUrl, title = "R
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
             onClick={onClose}
           />
           
@@ -51,7 +51,7 @@ const PDFModal: React.FC<PDFModalProps> = ({ isOpen, onClose, pdfUrl, title = "R
             className="relative w-[95vw] h-[90vh] max-w-6xl bg-background rounded-xl shadow-2xl overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-border bg-gradient-to-r from-primary/[6.5%] to-white/5">
+            <div className="flex items-center justify-between p-4 border-b border-border bg-gradient-to-r from-primary/[6.5%] to-card/50">
               <h3 className="text-xl font-semibold text-gradient clash-grotesk">
                 {title}
               </h3>
