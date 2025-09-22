@@ -22,39 +22,6 @@ import {
 import { TriangleDownIcon } from "@radix-ui/react-icons";
 import Spline from "@splinetool/react-spline";
 
-// Custom Spline wrapper that forces background
-const ThemedSpline = ({ scene, theme }: { scene: string; theme: string }) => {
-  useEffect(() => {
-    const forceSplineBackground = () => {
-      // Find all canvas elements and force background
-      const canvases = document.querySelectorAll('canvas');
-      canvases.forEach(canvas => {
-        const ctx = canvas.getContext('2d');
-        if (ctx) {
-          ctx.fillStyle = theme === 'light' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 0%)';
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
-        // Also set CSS background
-        (canvas as HTMLElement).style.backgroundColor = theme === 'light' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 0%)';
-      });
-    };
-
-    // Run immediately and on interval to catch dynamically created canvases
-    forceSplineBackground();
-    const interval = setInterval(forceSplineBackground, 100);
-    
-    return () => clearInterval(interval);
-  }, [theme]);
-
-  return (
-    <Spline 
-      scene={scene}
-      style={{
-        backgroundColor: theme === 'light' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 0%)',
-      }}
-    />
-  );
-};
 import Link from "next/link";
 import { cn, scrollTo } from "@/lib/utils";
 import Image from "next/image";
@@ -221,61 +188,6 @@ export default function Home() {
   const [isPDFModalOpen, setIsPDFModalOpen] = useState<boolean>(false);
   const { theme } = useTheme();
 
-  // Force hero background when theme changes
-  useEffect(() => {
-    const forceHeroBackground = () => {
-      const heroSection = document.getElementById('home');
-      const canvasContainerId = styles['canvas-container'];
-      const canvasContainer = canvasContainerId ? document.getElementById(canvasContainerId) : null;
-      
-      if (theme === 'light') {
-        if (heroSection) {
-          heroSection.style.backgroundColor = 'hsl(0 0% 98%)';
-          // Force all child elements
-          const allElements = heroSection.querySelectorAll('*');
-          allElements.forEach(el => {
-            (el as HTMLElement).style.backgroundColor = 'hsl(0 0% 98%)';
-          });
-        }
-        if (canvasContainer) {
-          canvasContainer.style.backgroundColor = 'hsl(0 0% 98%)';
-        }
-      } else {
-        if (heroSection) {
-          heroSection.style.backgroundColor = 'hsl(0 0% 0%)';
-          const allElements = heroSection.querySelectorAll('*');
-          allElements.forEach(el => {
-            (el as HTMLElement).style.backgroundColor = 'hsl(0 0% 0%)';
-          });
-        }
-        if (canvasContainer) {
-          canvasContainer.style.backgroundColor = 'hsl(0 0% 0%)';
-        }
-      }
-    };
-
-    // Run immediately and after a delay to catch any late-rendering elements
-    forceHeroBackground();
-    setTimeout(forceHeroBackground, 100);
-    setTimeout(forceHeroBackground, 500);
-    
-    // Watch for changes in the hero section (like when Spline loads)
-    const heroSection = document.getElementById('home');
-    if (heroSection) {
-      const observer = new MutationObserver(() => {
-        forceHeroBackground();
-      });
-      
-      observer.observe(heroSection, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['style', 'class']
-      });
-      
-      return () => observer.disconnect();
-    }
-  }, [theme]);
 
   // handle scroll
   useEffect(() => {
@@ -436,28 +348,9 @@ export default function Home() {
           data-scroll-speed="-.01"
           id={styles["canvas-container"]}
           className="hero-visual mt-full h-96 w-96 xl:mt-0"
-          style={{
-            backgroundColor: theme === 'light' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 0%)',
-            position: 'relative'
-          }}
         >
-          <div 
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: theme === 'light' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 0%)',
-              zIndex: 1,
-              pointerEvents: 'none'
-            }}
-          />
           <Suspense fallback={<span>Loading...</span>}>
-            <ThemedSpline 
-              scene="/assets/robot_follow_cursor_for_landing_page.spline"
-              theme={theme}
-            />
+            <Spline scene="/assets/robot_follow_cursor_for_landing_page.spline" />
           </Suspense>
         </div>
 </section>
