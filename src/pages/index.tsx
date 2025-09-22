@@ -4,6 +4,7 @@ import styles from "@/styles/Home.module.css";
 import { Button } from "@/components/ui/button";
 import PDFModal from "@/components/PDFModal";
 import ContactForm from "@/components/ContactForm";
+import { useTheme } from "@/contexts/ThemeContext";
 
 import {
   ChevronRight,
@@ -184,6 +185,7 @@ export default function Home() {
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
   const [isPDFModalOpen, setIsPDFModalOpen] = useState<boolean>(false);
+  const { theme } = useTheme();
 
   // handle scroll
   useEffect(() => {
@@ -270,9 +272,9 @@ export default function Home() {
         <section
           id="home"
           data-scroll-section
-          className="mt-40 flex w-full flex-col items-center xl:mt-0 xl:min-h-screen xl:flex-row xl:justify-between"
+          className="hero-section mt-40 flex w-full flex-col items-center xl:mt-0 xl:min-h-screen xl:flex-row xl:justify-between"
         >
-          <div className={styles.intro}>
+          <div className={`${styles.intro} hero-content`}>
             <div
               data-scroll
               data-scroll-direction="horizontal"
@@ -340,7 +342,7 @@ export default function Home() {
   data-scroll
   data-scroll-speed="-.01"
   id={styles["canvas-container"]}
-  className="mt-full h-96 w-96 xl:mt-0"
+  className="hero-visual mt-full h-96 w-96 xl:mt-0"
 >
   <Suspense fallback={<span>Loading...</span>}>
     <Spline scene="/assets/robot_follow_cursor_for_landing_page.spline" />
@@ -552,7 +554,7 @@ export default function Home() {
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
                   <Image
-                    src="/assets/memoji.jpg"
+                    src={theme === 'light' ? "/assets/memoji-light.png" : "/assets/memoji.jpg"}
                     alt="Swapnil Mittal"
                     width={64}
                     height={64}

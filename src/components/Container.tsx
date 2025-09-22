@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
 import Preloader from "@/components/Preloader";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "@/contexts/ThemeContext";
 import styles from "@/styles/Container.module.css";
 
 type IconProps = {
@@ -96,6 +97,7 @@ export default function Container(props: ContainerProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { theme } = useTheme();
 
   const { children, ...customMeta } = props;
   const router = useRouter();
@@ -190,7 +192,7 @@ export default function Container(props: ContainerProps) {
         <Link href="/">
           <div className="relative w-16 h-16 rounded-full overflow-hidden">
             <Image
-              src="/assets/memoji.jpg"
+              src={theme === 'light' ? "/assets/memoji-light.png" : "/assets/memoji.jpg"}
               alt="Swapnil Mittal"
               width={64}
               height={64}

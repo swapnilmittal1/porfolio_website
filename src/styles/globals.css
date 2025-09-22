@@ -92,6 +92,33 @@
   [data-theme="light"] #canvas-container {
     background-color: hsl(0 0% 98%) !important;
   }
+  
+  /* Force light theme for all hero elements */
+  [data-theme="light"] .hero-section,
+  [data-theme="light"] .hero-content,
+  [data-theme="light"] .hero-visual {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* Target the specific div containing the spline */
+  [data-theme="light"] div[data-scroll-speed="-.01"] {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* Force light theme for any element with canvas-container ID */
+  [data-theme="light"] *[id*="canvas"] {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* Nuclear option - force light background on everything in hero section */
+  [data-theme="light"] section#home * {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* But allow the spline canvas to have its own background */
+  [data-theme="light"] section#home canvas {
+    background-color: transparent !important;
+  }
   section {
     scroll-margin-top: 60px;
   }
