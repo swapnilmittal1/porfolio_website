@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
 import Preloader from "@/components/Preloader";
+import ThemeToggle from "@/components/ThemeToggle";
 import styles from "@/styles/Container.module.css";
 
 type IconProps = {
@@ -199,17 +200,20 @@ export default function Container(props: ContainerProps) {
         </Link>
 
         {/* Desktop menu */}
-        <ul className={styles["desktop-nav"]}>
-          {navLinks.map((link, i) => (
-            <NavItem
-              key={link.href}
-              href={link.href}
-              text={link.text}
-              i={i}
-              className="text-base"
-            />
-          ))}
-        </ul>
+        <div className="flex items-center space-x-4">
+          <ul className={styles["desktop-nav"]}>
+            {navLinks.map((link, i) => (
+              <NavItem
+                key={link.href}
+                href={link.href}
+                text={link.text}
+                i={i}
+                className="text-base"
+              />
+            ))}
+          </ul>
+          <ThemeToggle />
+        </div>
 
         {/* Mobile menu */}
         <AnimatePresence key="menu">
@@ -255,9 +259,12 @@ export default function Container(props: ContainerProps) {
 
                 {/* Footer */}
                 <div className="flex min-h-fit w-full flex-col space-y-8 px-[22px] py-10">
-                  <span className="text-sm text-muted-foreground">
-                    © {new Date().getFullYear()} Swapnil Mittal. All rights reserved.
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">
+                      © {new Date().getFullYear()} Swapnil Mittal. All rights reserved.
+                    </span>
+                    <ThemeToggle />
+                  </div>
                 </div>
               </div>
             </motion.div>
