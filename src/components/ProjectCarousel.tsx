@@ -114,12 +114,12 @@ export default function ProjectCarousel({ projects, className }: Props) {
                   viewport={{ once: true, amount: 0.2 }}
                   whileHover={{ scale: 1.02, rotate: 0.5 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/10 p-[1px] backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-primary/20"
+                  className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-br from-card/50 to-card/80 p-[1px] backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-primary/20 border border-border/20"
                 >
                   <motion.div
                     animate={{ y: [ -3, 3, -3 ] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="relative rounded-xl bg-background/50 h-96"
+                    className="relative rounded-xl bg-card/50 h-96"
                   >
                     {/* Image */}
                     <div className="relative h-full overflow-hidden">
@@ -135,7 +135,7 @@ export default function ProjectCarousel({ projects, className }: Props) {
                     </div>
 
                     {/* Hover Overlay Content */}
-                    <div className="absolute inset-0 bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
+                    <div className="absolute inset-0 bg-card/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
                       <div className="flex h-full flex-col justify-between p-6">
                         <div className="space-y-3">
                           <div>
@@ -145,7 +145,7 @@ export default function ProjectCarousel({ projects, className }: Props) {
                             )}
                           </div>
                           
-                          <p className="text-foreground leading-relaxed text-sm line-clamp-2">{project.description}</p>
+                          <p className="text-card-foreground leading-relaxed text-sm line-clamp-2">{project.description}</p>
 
                           {project.highlights && project.highlights.length > 0 && (
                             <ul className="space-y-1 text-xs text-muted-foreground">

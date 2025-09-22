@@ -519,10 +519,10 @@ export default function Home() {
               {services.map((service) => (
                 <div
                   key={service.service}
-                  className="flex flex-col items-start rounded-md bg-white/5 p-14 shadow-md backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-lg h-full"
+                  className="flex flex-col items-start rounded-md bg-card/50 p-14 shadow-md backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-card/80 hover:shadow-lg h-full border border-border/20"
                 >
                   <service.icon className="my-6 text-primary" size={20} />
-                  <span className="text-lg tracking-tight text-foreground">
+                  <span className="text-lg tracking-tight text-card-foreground">
                     {service.service}
                   </span>
                   <span className="mt-2 tracking-tighter text-muted-foreground flex-1">
@@ -540,7 +540,7 @@ export default function Home() {
             data-scroll
             data-scroll-speed=".4"
             data-scroll-position="top"
-            className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-primary/[6.5%] to-white/5 px-8 py-24 text-center xl:py-32"
+            className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-primary/[6.5%] to-card/50 px-8 py-24 text-center xl:py-32 border border-border/20"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
