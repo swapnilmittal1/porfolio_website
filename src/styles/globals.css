@@ -115,9 +115,24 @@
     background-color: hsl(0 0% 98%) !important;
   }
   
-  /* But allow the spline canvas to have its own background */
+  /* Force the spline container to have light background */
+  [data-theme="light"] section#home div {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* Override any inline styles that might be set by Spline */
   [data-theme="light"] section#home canvas {
-    background-color: transparent !important;
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* Force the entire body background in light theme */
+  [data-theme="light"] body {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* Force the main container background */
+  [data-theme="light"] main {
+    background-color: hsl(0 0% 98%) !important;
   }
   section {
     scroll-margin-top: 60px;

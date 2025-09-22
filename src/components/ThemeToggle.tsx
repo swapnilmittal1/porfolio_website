@@ -17,8 +17,27 @@ const ThemeToggle: React.FC = () => {
       console.log('Current data-theme:', currentTheme);
       
       if (currentTheme === 'light') {
+        // Force light theme on all elements
         document.body.style.backgroundColor = 'hsl(0 0% 98%)';
         document.body.style.color = 'hsl(240 10% 3.9%)';
+        
+        // Force light background on hero section
+        const heroSection = document.getElementById('home');
+        if (heroSection) {
+          heroSection.style.backgroundColor = 'hsl(0 0% 98%)';
+          // Force all child elements
+          const allElements = heroSection.querySelectorAll('*');
+          allElements.forEach(el => {
+            (el as HTMLElement).style.backgroundColor = 'hsl(0 0% 98%)';
+          });
+        }
+        
+        // Force canvas container
+        const canvasContainer = document.getElementById('canvas-container');
+        if (canvasContainer) {
+          canvasContainer.style.backgroundColor = 'hsl(0 0% 98%)';
+        }
+        
         console.log('Forced light theme styles applied');
       } else {
         document.body.style.backgroundColor = 'hsl(0 0% 0%)';
