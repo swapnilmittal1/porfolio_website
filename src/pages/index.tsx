@@ -367,22 +367,7 @@ export default function Home() {
             backgroundColor: theme === 'light' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 0%)'
           }}
         >
-          {/* Background overlay to force light theme */}
-          {theme === 'light' && (
-            <div 
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: 'hsl(0 0% 98%)',
-                zIndex: 0,
-                pointerEvents: 'none'
-              }}
-            />
-          )}
-          <div className={`${styles.intro} hero-content relative z-10`}>
+          <div className={`${styles.intro} hero-content`}>
             <div
               data-scroll
               data-scroll-direction="horizontal"
@@ -450,7 +435,7 @@ export default function Home() {
           data-scroll
           data-scroll-speed="-.01"
           id={styles["canvas-container"]}
-          className="hero-visual mt-full h-96 w-96 xl:mt-0 relative z-10"
+          className="hero-visual mt-full h-96 w-96 xl:mt-0"
           style={{
             backgroundColor: theme === 'light' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 0%)',
             position: 'relative'
