@@ -51,7 +51,11 @@ function handleClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
   if (href && href.startsWith("#")) {
     e.preventDefault();
     const section = document.querySelector(href);
-    scrollTo(section);
+    if (section) {
+      scrollTo(section);
+    } else {
+      console.warn(`Section with id "${href}" not found`);
+    }
   }
 }
 
@@ -156,7 +160,7 @@ export default function Container(props: ContainerProps) {
             : "bg-transparent",
         )}
       >
-        <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
+        <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
@@ -223,14 +227,18 @@ export default function Container(props: ContainerProps) {
                 {/* Links */}
                 <ul className="flex min-h-fit w-full flex-col items-start space-y-6 px-[22px] py-[58px]">
                   {navLinks.map((link, i) => (
-                    <button key={link.href} onClick={() => setIsOpen(false)}>
-                      <NavItem
+                    <li key={link.href}>
+                      <a
                         href={link.href}
-                        text={link.text}
-                        i={i}
-                        className="text-xl"
-                      />
-                    </button>
+                        onClick={(e) => {
+                          handleClick(e);
+                          setIsOpen(false);
+                        }}
+                        className="nav-link text-xl"
+                      >
+                        {link.text}
+                      </a>
+                    </li>
                   ))}
                 </ul>
 
