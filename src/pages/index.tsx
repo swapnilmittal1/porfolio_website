@@ -191,7 +191,8 @@ export default function Home() {
   useEffect(() => {
     const forceHeroBackground = () => {
       const heroSection = document.getElementById('home');
-      const canvasContainer = document.getElementById(styles['canvas-container']);
+      const canvasContainerId = styles['canvas-container'];
+      const canvasContainer = canvasContainerId ? document.getElementById(canvasContainerId) : null;
       
       if (theme === 'light') {
         if (heroSection) {
