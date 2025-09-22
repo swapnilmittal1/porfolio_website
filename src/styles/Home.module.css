@@ -19,16 +19,11 @@
 
 /* projects */
 .project-card {
-    @apply p-14 bg-card rounded-md;
+    @apply p-14 bg-black rounded-md; /* Changed to black */
 }
 
 /* spline canvas */
 #canvas-container {
-    @apply bg-background h-[1105px] xl:w-[1690px] xl:min-w-[1690px] overflow-hidden;
+    @apply bg-black h-[1105px] xl:w-[1690px] xl:min-w-[1690px] overflow-hidden;
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-}
-
-/* Force light theme for canvas container */
-[data-theme="light"] #canvas-container {
-    background-color: hsl(0 0% 98%) !important;
 }

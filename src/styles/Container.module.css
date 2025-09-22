@@ -1,6 +1,7 @@
 /* navbar */
 .nav {
-  @apply fixed top-0 z-40 flex w-full flex-row items-center justify-between px-[1rem] py-8 2xl:px-[17rem] bg-background/95 backdrop-blur-sm;
+  background-color: black; /* Ensures the navbar has a black background */
+  @apply fixed top-0 z-40 flex w-full flex-row items-center justify-between px-[1rem] py-8 2xl:px-[17rem];
 }
 .nav .desktop-nav {
   @apply hidden items-center space-x-5 text-center sm:flex;
@@ -29,7 +30,7 @@
   justify-content: center;
   position: fixed;
   z-index: 99;
-  background-color: hsl(var(--background));
+  background-color: hsl(240 27.9% 5.7%);
 
   svg{
     position: absolute;
@@ -38,13 +39,13 @@
     height: calc(100% + 300px);
 
     path{
-      fill: hsl(var(--background));
+      fill: hsl(240 27.9% 5.7%);
     }
   }
 
   p{
     display: flex;
-    color: hsl(var(--foreground));
+    color: white;
     font-size: 42px;
     align-items: center;
     position: absolute;
@@ -54,7 +55,7 @@
       display: block;
       width: 10px;
       height: 10px;
-      background-color: hsl(var(--foreground));
+      background-color: white;
       border-radius: 50%;
       margin-right: 10px;
     }

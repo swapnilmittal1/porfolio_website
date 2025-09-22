@@ -4,7 +4,6 @@ import styles from "@/styles/Home.module.css";
 import { Button } from "@/components/ui/button";
 import PDFModal from "@/components/PDFModal";
 import ContactForm from "@/components/ContactForm";
-import { useTheme } from "@/contexts/ThemeContext";
 
 import {
   ChevronRight,
@@ -21,7 +20,6 @@ import {
 } from "lucide-react";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
 import Spline from "@splinetool/react-spline";
-
 import Link from "next/link";
 import { cn, scrollTo } from "@/lib/utils";
 import Image from "next/image";
@@ -186,8 +184,6 @@ export default function Home() {
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
   const [isPDFModalOpen, setIsPDFModalOpen] = useState<boolean>(false);
-  const { theme } = useTheme();
-
 
   // handle scroll
   useEffect(() => {
@@ -274,12 +270,9 @@ export default function Home() {
         <section
           id="home"
           data-scroll-section
-          className="hero-section mt-40 flex w-full flex-col items-center xl:mt-0 xl:min-h-screen xl:flex-row xl:justify-between relative"
-          style={{
-            backgroundColor: theme === 'light' ? 'hsl(0 0% 98%)' : 'hsl(0 0% 0%)'
-          }}
+          className="mt-40 flex w-full flex-col items-center xl:mt-0 xl:min-h-screen xl:flex-row xl:justify-between"
         >
-          <div className={`${styles.intro} hero-content`}>
+          <div className={styles.intro}>
             <div
               data-scroll
               data-scroll-direction="horizontal"
@@ -343,16 +336,16 @@ export default function Home() {
               <TriangleDownIcon className="mt-1 animate-bounce" />
             </div>
           </div>
-        <div
-          data-scroll
-          data-scroll-speed="-.01"
-          id={styles["canvas-container"]}
-          className="hero-visual mt-full h-96 w-96 xl:mt-0"
-        >
-          <Suspense fallback={<span>Loading...</span>}>
-            <Spline scene="/assets/robot_follow_cursor_for_landing_page.spline" />
-          </Suspense>
-        </div>
+          <div
+  data-scroll
+  data-scroll-speed="-.01"
+  id={styles["canvas-container"]}
+  className="mt-full h-96 w-96 xl:mt-0"
+>
+  <Suspense fallback={<span>Loading...</span>}>
+    <Spline scene="/assets/robot_follow_cursor_for_landing_page.spline" />
+  </Suspense>
+</div>
 </section>
 
         {/* About */}
@@ -526,10 +519,10 @@ export default function Home() {
               {services.map((service) => (
                 <div
                   key={service.service}
-                  className="flex flex-col items-start rounded-md bg-card/50 p-14 shadow-md backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-card/80 hover:shadow-lg h-full border border-border/20"
+                  className="flex flex-col items-start rounded-md bg-white/5 p-14 shadow-md backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-lg h-full"
                 >
                   <service.icon className="my-6 text-primary" size={20} />
-                  <span className="text-lg tracking-tight text-card-foreground">
+                  <span className="text-lg tracking-tight text-foreground">
                     {service.service}
                   </span>
                   <span className="mt-2 tracking-tighter text-muted-foreground flex-1">
@@ -547,7 +540,7 @@ export default function Home() {
             data-scroll
             data-scroll-speed=".4"
             data-scroll-position="top"
-            className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-primary/[6.5%] to-card/50 px-8 py-24 text-center xl:py-32 border border-border/20"
+            className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-primary/[6.5%] to-white/5 px-8 py-24 text-center xl:py-32"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -559,7 +552,7 @@ export default function Home() {
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
                   <Image
-                    src={theme === 'light' ? "/assets/memoji-light.png" : "/assets/memoji.jpg"}
+                    src="/assets/memoji.jpg"
                     alt="Swapnil Mittal"
                     width={64}
                     height={64}
