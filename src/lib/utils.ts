@@ -7,28 +7,31 @@ export function cn(...inputs: ClassValue[]) {
 
 // scroll to element
 export function scrollTo(element: Element | null) {
-  if (!element) return;
+  if (!element) {
+    console.warn('scrollTo: element is null');
+    return;
+  }
 
-  // Check if Locomotive Scroll is available
-  if (typeof window !== 'undefined' && (window as any).locomotiveScroll) {
-    try {
-      (window as any).locomotiveScroll.scrollTo(element, {
-        duration: 1000,
-        easing: [0.25, 0.0, 0.35, 1.0],
-      });
-    } catch (error) {
-      console.warn('Locomotive scroll failed, falling back to native scroll:', error);
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
-    }
-  } else {
+  console.log('scrollTo called for element:', element.id);
+
+  // Get the element's position
+  const elementTop = element.offsetTop;
+  const elementPosition = elementTop - 100; // Offset for fixed header
+  
+  console.log('Scrolling to position:', elementPosition);
+
+  // Use window.scrollTo for more reliable scrolling
+  window.scrollTo({
+    top: elementPosition,
+    behavior: 'smooth'
+  });
+
+  // Also try scrollIntoView as backup
+  setTimeout(() => {
     element.scrollIntoView({
       behavior: "smooth",
       block: "start",
       inline: "nearest",
     });
-  }
+  }, 100);
 }

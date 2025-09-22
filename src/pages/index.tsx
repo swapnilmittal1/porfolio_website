@@ -191,15 +191,20 @@ export default function Home() {
     const navLinks = document.querySelectorAll(".nav-link");
 
     async function getLocomotive() {
-      const Locomotive = (await import("locomotive-scroll")).default;
-      const locomotive = new Locomotive({
-        el: refScrollContainer.current ?? new HTMLElement(),
-        smooth: true,
-      });
-      
-      // Store locomotive instance globally for scrollTo function
-      if (typeof window !== 'undefined') {
-        (window as any).locomotiveScroll = locomotive;
+      try {
+        const Locomotive = (await import("locomotive-scroll")).default;
+        const locomotive = new Locomotive({
+          el: refScrollContainer.current ?? new HTMLElement(),
+          smooth: true,
+        });
+        
+        // Store locomotive instance globally for scrollTo function
+        if (typeof window !== 'undefined') {
+          (window as any).locomotiveScroll = locomotive;
+          console.log('Locomotive scroll initialized');
+        }
+      } catch (error) {
+        console.warn('Failed to initialize locomotive scroll:', error);
       }
     }
 

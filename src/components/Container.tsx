@@ -47,14 +47,25 @@ const navLinks = [
 
 function handleClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
   const href = e.currentTarget.getAttribute("href");
+  console.log('Navigation clicked:', href);
 
   if (href && href.startsWith("#")) {
     e.preventDefault();
+    console.log('Looking for section:', href);
     const section = document.querySelector(href);
+    console.log('Found section:', section);
+    
     if (section) {
+      console.log('Calling scrollTo for section:', section.id);
       scrollTo(section);
     } else {
       console.warn(`Section with id "${href}" not found`);
+      // Try alternative selectors
+      const altSection = document.querySelector(href.substring(1));
+      if (altSection) {
+        console.log('Found section with alternative selector:', altSection.id);
+        scrollTo(altSection);
+      }
     }
   }
 }
