@@ -14,8 +14,9 @@ export function scrollTo(element: Element | null) {
 
   console.log('scrollTo called for element:', element.id);
 
-  // Get the element's position
-  const elementTop = element.offsetTop;
+  // Cast to HTMLElement to access offsetTop
+  const htmlElement = element as HTMLElement;
+  const elementTop = htmlElement.offsetTop;
   const elementPosition = elementTop - 100; // Offset for fixed header
   
   console.log('Scrolling to position:', elementPosition);
