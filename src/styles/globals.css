@@ -134,6 +134,30 @@
   [data-theme="light"] main {
     background-color: hsl(0 0% 98%) !important;
   }
+  
+  /* Force Spline canvas background */
+  [data-theme="light"] canvas {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* Force any iframe or webgl context background */
+  [data-theme="light"] iframe {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* Force any element with spline-related classes */
+  [data-theme="light"] [class*="spline"] {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  /* Nuclear option for any element in the hero section */
+  [data-theme="light"] #home,
+  [data-theme="light"] #home *,
+  [data-theme="light"] #home div,
+  [data-theme="light"] #home canvas,
+  [data-theme="light"] #home iframe {
+    background-color: hsl(0 0% 98%) !important;
+  }
   section {
     scroll-margin-top: 60px;
   }

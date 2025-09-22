@@ -187,6 +187,61 @@ export default function Home() {
   const [isPDFModalOpen, setIsPDFModalOpen] = useState<boolean>(false);
   const { theme } = useTheme();
 
+  // Force hero background when theme changes
+  useEffect(() => {
+    const forceHeroBackground = () => {
+      const heroSection = document.getElementById('home');
+      const canvasContainer = document.getElementById(styles['canvas-container']);
+      
+      if (theme === 'light') {
+        if (heroSection) {
+          heroSection.style.backgroundColor = 'hsl(0 0% 98%)';
+          // Force all child elements
+          const allElements = heroSection.querySelectorAll('*');
+          allElements.forEach(el => {
+            (el as HTMLElement).style.backgroundColor = 'hsl(0 0% 98%)';
+          });
+        }
+        if (canvasContainer) {
+          canvasContainer.style.backgroundColor = 'hsl(0 0% 98%)';
+        }
+      } else {
+        if (heroSection) {
+          heroSection.style.backgroundColor = 'hsl(0 0% 0%)';
+          const allElements = heroSection.querySelectorAll('*');
+          allElements.forEach(el => {
+            (el as HTMLElement).style.backgroundColor = 'hsl(0 0% 0%)';
+          });
+        }
+        if (canvasContainer) {
+          canvasContainer.style.backgroundColor = 'hsl(0 0% 0%)';
+        }
+      }
+    };
+
+    // Run immediately and after a delay to catch any late-rendering elements
+    forceHeroBackground();
+    setTimeout(forceHeroBackground, 100);
+    setTimeout(forceHeroBackground, 500);
+    
+    // Watch for changes in the hero section (like when Spline loads)
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+      const observer = new MutationObserver(() => {
+        forceHeroBackground();
+      });
+      
+      observer.observe(heroSection, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['style', 'class']
+      });
+      
+      return () => observer.disconnect();
+    }
+  }, [theme]);
+
   // handle scroll
   useEffect(() => {
     const sections = document.querySelectorAll("section");
