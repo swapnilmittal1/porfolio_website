@@ -17,22 +17,17 @@ export function scrollTo(element: Element | null) {
   // Cast to HTMLElement to access offsetTop
   const htmlElement = element as HTMLElement;
   const elementTop = htmlElement.offsetTop;
-  const elementPosition = elementTop - 100; // Offset for fixed header
   
-  console.log('Scrolling to position:', elementPosition);
+  // Calculate proper offset based on header height
+  const header = document.querySelector('nav');
+  const headerHeight = header ? header.offsetHeight : 100;
+  const elementPosition = elementTop - headerHeight - 20; // Extra 20px for better spacing
+  
+  console.log('Scrolling to position:', elementPosition, 'Header height:', headerHeight);
 
   // Use window.scrollTo for more reliable scrolling
   window.scrollTo({
-    top: elementPosition,
+    top: Math.max(0, elementPosition), // Ensure we don't scroll to negative position
     behavior: 'smooth'
   });
-
-  // Also try scrollIntoView as backup
-  setTimeout(() => {
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
-    });
-  }, 100);
 }
