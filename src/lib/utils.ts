@@ -21,7 +21,7 @@ export function scrollTo(element: Element | null) {
   // Calculate proper offset based on header height
   const header = document.querySelector('nav');
   const headerHeight = header ? header.offsetHeight : 100;
-  const elementPosition = elementTop - headerHeight - 20; // Extra 20px for better spacing
+  const elementPosition = elementTop - headerHeight - 60; // Extra 60px for better spacing
   
   console.log('Scrolling to position:', elementPosition, 'Header height:', headerHeight);
 
