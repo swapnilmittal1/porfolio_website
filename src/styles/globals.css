@@ -83,6 +83,15 @@
   [data-theme="light"] .text-foreground {
     color: hsl(240 10% 3.9%) !important;
   }
+  
+  /* Force light theme for hero section */
+  [data-theme="light"] section#home {
+    background-color: hsl(0 0% 98%) !important;
+  }
+  
+  [data-theme="light"] #canvas-container {
+    background-color: hsl(0 0% 98%) !important;
+  }
   section {
     scroll-margin-top: 60px;
   }
